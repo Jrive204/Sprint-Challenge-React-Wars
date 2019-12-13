@@ -6,3 +6,39 @@
   text-shadow: 1px 1px 5px #fff;
 }
 /* write your parent styles in here for your App.js */
+.votebutton {
+  margin: 1%;
+}
+
+.charCarddiv {
+  display: flex;
+  justify-content: center;
+}
+
+.cards {
+  max-width: 35%;
+  margin: 0.5%;
+}
+
+.votebutton {
+  margin-top: 4%;
+}
+.formsearchdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}
+.formsearch {
+}
+
+.page {
+  width: 100%;
+  padding-top: 1%;
+  display: flex;
+  justify-content: center;
+}
+
+.pagination-lg .page-link {
+  background-color: rgb(51, 51, 51);
+}
