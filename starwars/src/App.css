@@ -23,3 +23,18 @@
 .votebutton {
   margin-top: 4%;
 }
+.formsearchdiv {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 2%;
+}
+.formsearch {
+}
+
+.page {
+  width: 100%;
+  padding-top: 1%;
+  display: flex;
+  justify-content: center;
+}
