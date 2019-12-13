@@ -65,13 +65,20 @@ const App = () => {
   const handlechange = e => {
     setSearch(e.target.value);
   };
+
+  const clicksearch = e => {
+    setSearch(search);
+  };
   console.log(`change`, search);
 
   return (
     <div className='App'>
       <h1 className='Header'>React Wars</h1>
       <h3>Favorite Character</h3>
-      <Formsearch search={search} handlechange={handlechange}></Formsearch>
+      <Formsearch
+        clicksearch={clicksearch}
+        search={search}
+        handlechange={handlechange}></Formsearch>
       <div>{data}</div>
       <Page
         pageprev={e => (page == 1 ? null : setPage(page - 1))}

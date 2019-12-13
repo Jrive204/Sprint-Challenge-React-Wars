@@ -16,7 +16,7 @@ const Formsearch = props => {
             placeholder='Search Name'
           />
         </FormGroup>
-        <Button onClick={``} href={`#${props.search}`}>
+        <Button onClick={props.clicksearch} href={`#${props.search}`}>
           Submit
         </Button>
       </Form>
