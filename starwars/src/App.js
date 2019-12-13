@@ -57,11 +57,7 @@ const App = () => {
       .catch(err => {
         err.msg = `Sorry Reload`;
       });
-  }, []);
-
-  const pagechangeradd = () => {
-    setPage(page + 1);
-  };
+  }, [page]);
 
   return (
     <div className='App'>
@@ -69,7 +65,10 @@ const App = () => {
       <h3>Favorite Character</h3>
       <Formsearch></Formsearch>
       <div>{data}</div>
-      <Page pagechangeradd={e => setPage(page + 1)}></Page>
+      <Page
+        pageprev={e => (page == 1 ? null : setPage(page - 1))}
+        page={page}
+        pagechangeradd={e => setPage(page + 1)}></Page>
     </div>
   );
 };

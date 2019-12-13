@@ -38,3 +38,7 @@
   display: flex;
   justify-content: center;
 }
+
+.pagination-lg .page-link {
+  background-color: rgb(51, 51, 51);
+}

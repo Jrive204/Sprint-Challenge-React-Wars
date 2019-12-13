@@ -6,10 +6,10 @@ const Page = props => {
     <div className='page'>
       <Pagination size='lg' aria-label='Page navigation example'>
         <PaginationItem>
-          <PaginationLink previous href='#' />
+          <PaginationLink onClick={props.pageprev} previous href='' />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink>1</PaginationLink>
+          <PaginationLink>{props.page}</PaginationLink>
         </PaginationItem>
 
         <PaginationItem>
