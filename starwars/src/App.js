@@ -69,7 +69,7 @@ const App = () => {
   const clicksearch = e => {
     setSearch(search);
   };
-  console.log(`change`, search);
+  console.log(`this is search`, search);
 
   return (
     <div className='App'>
