@@ -8,6 +8,7 @@ import Page from "./components/Page";
 const App = () => {
   // Try to think through what state you'll need for this app before starting. Then build out
   // the state properties here.
+  const [search, setSearch] = useState(``);
   const [data, setData] = useState(``);
   const [page, setPage] = useState(1);
 
@@ -35,7 +36,9 @@ const App = () => {
                 <ul style={{ listStyle: `none`, paddingRight: `40px` }}>
                   <li>
                     <CardTitle>
-                      <h4 key={e.name}>{e.name}</h4>
+                      <h4 id={e.name} key={e.name}>
+                        {e.name}
+                      </h4>
                     </CardTitle>
                   </li>
                   <li>Films: {e.films.length}</li>
@@ -59,11 +62,16 @@ const App = () => {
       });
   }, [page]);
 
+  const handlechange = e => {
+    setSearch(e.target.value);
+  };
+  console.log(`change`, search);
+
   return (
     <div className='App'>
       <h1 className='Header'>React Wars</h1>
       <h3>Favorite Character</h3>
-      <Formsearch></Formsearch>
+      <Formsearch search={search} handlechange={handlechange}></Formsearch>
       <div>{data}</div>
       <Page
         pageprev={e => (page == 1 ? null : setPage(page - 1))}
