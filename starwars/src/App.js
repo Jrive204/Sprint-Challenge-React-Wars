@@ -22,7 +22,6 @@ const App = () => {
       .then(response => {
         let people = response.data.results;
         let char = people.map(e => {
-          console.log(`hello`, people);
           return (
             <div className='charCarddiv'>
               <Card
@@ -44,7 +43,6 @@ const App = () => {
                   <li>Films: {e.films.length}</li>
                   <li>
                     Birth Year: {e.birth_year} &nbsp; Gender: {e.gender}
-                    {e.homeworld.name}
                   </li>
                   <Button className='votebutton' color='danger'>
                     Vote!

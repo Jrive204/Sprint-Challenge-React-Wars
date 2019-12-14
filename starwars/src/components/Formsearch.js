@@ -12,7 +12,7 @@ const Formsearch = props => {
             style={{ textAlign: `center` }}
             type='search'
             name='search'
-            id=''
+            id='inputbox'
             placeholder='Search Name'
           />
         </FormGroup>
