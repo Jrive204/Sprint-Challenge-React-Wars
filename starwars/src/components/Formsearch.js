@@ -3,14 +3,14 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 const Formsearch = props => {
   return (
-    <div className='formsearchdiv'>
+    <div className='formsearchdiv' alt="Character Name Search Bar">
       <Form className='formsearch' inline>
         <FormGroup className='mb-2 mr-sm-2 mb-sm-0'>
           <Label for='search' className='mr-sm-2'></Label>
           <Input
             onChange={props.handlechange}
             style={{ textAlign: `center` }}
-            type='search'
+            type='text'
             name='search'
             id='inputbox'
             placeholder='Search Name'
