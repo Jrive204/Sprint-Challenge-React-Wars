@@ -10,9 +10,9 @@ const Formsearch = props => {
           <Input
             onChange={props.handlechange}
             style={{ textAlign: `center` }}
-            type='email'
-            name='email'
-            id='exampleEmail'
+            type='search'
+            name='search'
+            id=''
             placeholder='Search Name'
           />
         </FormGroup>
