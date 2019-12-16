@@ -6,27 +6,20 @@ import Formsearch from "./components/Formsearch";
 import Page from "./components/Page";
 
 const App = () => {
-  // Try to think through what state you'll need for this app before starting. Then build out
-  // the state properties here.
+  // Use States
   const [search, setSearch] = useState(``);
   const [data, setData] = useState(``);
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
 
+  // Axios pulls
   let axOne = `https://cdn.rawgit.com/akabab/starwars-api/0.2.1/api/all.json`;
   let axTwo = `https://swapi.co/api/people/?page=${page}&format=json`;
 
   const requestOne = axios.get(axOne);
   const requestTwo = axios.get(axTwo);
 
-  const chgimg = () => {
-    setCount(count + 10);
-  };
-
-  // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a
-  // side effect in a component, you want to think about which state and/or props it should
-  // sync up with, if any.
-
+  //UseEffect starts here --
   useEffect(() => {
     axios
       .all([requestOne, requestTwo])
@@ -35,14 +28,20 @@ const App = () => {
           (...response) => {
             const requestOne = response[0];
             const requestTwo = response[1];
+            var x = requestOne.data;
+            var y = requestTwo.data.results;
+            // var z = [...x, ...y];
+            console.log(y, `checklists`, x);
 
             let imagechar = requestOne.data;
             let people = requestTwo.data.results;
+            // .sort((a, b) =>
+            //   a.people > b.people ? 1 : -1
+            // );
 
             console.log(`firstlist`, imagechar);
             console.log(`secondlist`, people);
 
-            // console.log(`people`, people);
             let char = people.map(
               (e, i) => {
                 return (
@@ -61,20 +60,22 @@ const App = () => {
                         alt='Card image cap'
                         style={{ paddingBottom: `4%` }}
                       />
-                      {console.log(
+                      {/* {console.log(
                         `imagesbitches`,
                         imagechar[i].image,
                         people[i]
-                      )}
+                      )} */}
                       <ul style={{ listStyle: `none`, paddingRight: `40px` }}>
                         <li>
                           <CardTitle>
-                            <h4 id={e.name} key={e.name}>
+                            <h3 id={e.name} key={e.name}>
                               {e.name}
-                            </h4>
+                            </h3>
                           </CardTitle>
                         </li>
-                        <li>Films: {e.films.length}</li>
+                        <li>
+                          <h4>Films: {e.films.length}</h4>
+                        </li>
                         <li>
                           Birth Year: {e.birth_year} &nbsp; Gender: {e.gender}
                         </li>
@@ -104,12 +105,12 @@ const App = () => {
   const clicksearch = e => {
     setSearch(search);
   };
-  console.log(`this is search`, search);
+  // console.log(`this is search`, search);
 
   return (
     <div className='App'>
       <h1 className='Header'>React Wars</h1>
-      <h3>Favorite Character</h3>
+      <h2>Who is your Favorite Character</h2>
       <Formsearch
         clicksearch={clicksearch}
         search={search}
@@ -118,10 +119,12 @@ const App = () => {
       <Page
         count={count}
         pageprev={e =>
-          page == 1 ? null : setPage(page - 1) - setCount(count - 10)
+          page === 1 ? null : setPage(page - 1) - setCount(count - 10)
         }
         page={page}
-        pagechangeradd={e => setCount(count + 10) + setPage(page + 1)}></Page>
+        pagechangeradd={e =>
+          page >= 9 ? null : setCount(count + 10) + setPage(page + 1)
+        }></Page>
     </div>
   );
 };
